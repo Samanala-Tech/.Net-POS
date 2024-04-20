@@ -73,12 +73,13 @@
             this.richTextBox1.Size = new System.Drawing.Size(229, 42);
             this.richTextBox1.TabIndex = 12;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.White;
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(877, 77);
+            this.pictureBox11.Location = new System.Drawing.Point(828, 77);
             this.pictureBox11.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(29, 25);
