@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BeautyBoutiquePOS_TransactionsPage
+namespace BeautyBoutiquePOS_TransactionsPage.UserControls.Sub_UserControls
 {
     public partial class newCheckout : Form
     {
