@@ -171,6 +171,11 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
                 totalText.Text = total.ToString();
             }
 
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a customer before checking out.");
+                return; 
+            }
 
             string customerName = comboBox1.SelectedItem.ToString();
             decimal discount = decimal.TryParse(txtDiscount.Text, out decimal discountValue) ? discountValue : 0;
