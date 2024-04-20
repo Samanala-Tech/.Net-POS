@@ -10,7 +10,10 @@ using System.Windows.Forms;
 
 using System.Drawing.Drawing2D;
 
+using BeautyBoutiquePOS_TransactionsPage.UserControlls;
+
 namespace BeautyBoutiquePOS_TransactionsPage
+
 {
     public partial class Form1 : Form
     {
@@ -44,7 +47,7 @@ namespace BeautyBoutiquePOS_TransactionsPage
             //Use to check client height:
              
             int clientHeight = this.ClientSize.Height;
-            MessageBox.Show("Form's Client Area Height: " + clientHeight);
+            //MessageBox.Show("Form's Client Area Height: " + clientHeight);
         }
 
         //Right Side Rounded Menu Buttons:
@@ -82,6 +85,19 @@ namespace BeautyBoutiquePOS_TransactionsPage
         private void btnCategories_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            // Load the Checkout UserControl
+            var checkoutControl = new Checkout();
+            windowPnl.Controls.Add(checkoutControl);
+        }
+
+        private void ClearContentArea()
+        {
+            // Remove any existing content from the content area
+            windowPnl.Controls.Clear();
         }
     }
 }

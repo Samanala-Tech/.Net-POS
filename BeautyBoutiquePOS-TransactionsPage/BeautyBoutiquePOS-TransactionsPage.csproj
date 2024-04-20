@@ -123,6 +123,12 @@
     <Compile Include="newCategorie.Designer.cs">
       <DependentUpon>newCategorie.cs</DependentUpon>
     </Compile>
+    <Compile Include="newCheckout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newCheckout.Designer.cs">
+      <DependentUpon>newCheckout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="signup.cs">
@@ -130,6 +136,12 @@
     </Compile>
     <Compile Include="signup.Designer.cs">
       <DependentUpon>signup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Checkout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Checkout.Designer.cs">
+      <DependentUpon>Checkout.cs</DependentUpon>
     </Compile>
     <Compile Include="welcome.cs">
       <SubType>Form</SubType>
@@ -149,6 +161,9 @@
     <EmbeddedResource Include="newCategorie.resx">
       <DependentUpon>newCategorie.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="newCheckout.resx">
+      <DependentUpon>newCheckout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -161,6 +176,9 @@
     </Compile>
     <EmbeddedResource Include="signup.resx">
       <DependentUpon>signup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Checkout.resx">
+      <DependentUpon>Checkout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="welcome.resx">
       <DependentUpon>welcome.cs</DependentUpon>

@@ -16,7 +16,7 @@ namespace BeautyBoutiquePOS_TransactionsPage
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new categories());
+            Application.Run(new Form1());
 
 
         }
