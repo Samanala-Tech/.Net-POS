@@ -23,6 +23,9 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControlls
             InitializeComponent();
 
             CustomizeDataGridView();
+            RoundCorners(panel1, 10);
+
+
 
             UpdateDataGridView();
 
@@ -85,6 +88,8 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControlls
 
             checkoutGridView.RowTemplate.Height = 40;
 
+            checkoutGridView.ReadOnly = true;
+
 
         }
 
@@ -121,5 +126,28 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControlls
                 button.Region = new Region(GraphPath);
             }
         }
+
+                private void RoundCorners(Control control, int cornerRadius)
+                {
+           
+                    GraphicsPath path = new GraphicsPath();
+
+                    int width = control.Width;
+                    int height = control.Height;
+                    int radius = cornerRadius;
+
+                    Rectangle arcRectTopLeft = new Rectangle(0, 0, radius * 2, radius * 2);
+                    Rectangle arcRectTopRight = new Rectangle(width - radius * 2, 0, radius * 2, radius * 2);
+                    Rectangle arcRectBottomLeft = new Rectangle(0, height - radius * 2, radius * 2, radius * 2);
+                    Rectangle arcRectBottomRight = new Rectangle(width - radius * 2, height - radius * 2, radius * 2, radius * 2);
+
+                    path.AddArc(arcRectTopLeft, 180, 90);
+                    path.AddArc(arcRectTopRight, 270, 90);
+                    path.AddArc(arcRectBottomRight, 0, 90);
+                    path.AddArc(arcRectBottomLeft, 90, 90);
+
+                    path.CloseFigure();
+                    control.Region = new Region(path);
+                }
     }
 }

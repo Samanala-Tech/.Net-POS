@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,8 +81,16 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            if (comboBox2.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a product before adding.");
+                return;
+            }
             string productName = comboBox2.SelectedItem.ToString();
             int quantity = Convert.ToInt32(txtQuantity.Text);
+
+            
 
             decimal totalPrice = CalculateTotalPrice(productName, quantity);
 
@@ -212,6 +221,32 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             }
             checkoutForm.UpdateDataGridView();
             this.Close();
+        }
+
+       
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Rounded(object sender, PaintEventArgs e)
+        {
+            Button button = (Button)sender;
+            using (GraphicsPath GraphPath = new GraphicsPath())
+            {
+                Rectangle Rect = button.ClientRectangle;
+                Rect.Width--;
+                Rect.Height--;
+
+                GraphPath.AddArc(Rect.X, Rect.Y, 50, 50, 180, 90);
+                GraphPath.AddArc(Rect.X + Rect.Width - 50, Rect.Y, 50, 50, 270, 90);
+                GraphPath.AddArc(Rect.X + Rect.Width - 50, Rect.Y + Rect.Height - 50, 50, 50, 0, 90);
+                GraphPath.AddArc(Rect.X, Rect.Y + Rect.Height - 50, 50, 50, 90, 90);
+                GraphPath.CloseFigure();
+
+                button.Region = new Region(GraphPath);
+            }
         }
     }
 }
