@@ -54,5 +54,14 @@ select * from customers;
 
 desc customers;
 
+create table checkout( 
+id int auto_increment primary key,
+customer varchar(255),
+total double,
+discount double
+);
+
+select * from checkout;
+
 
 

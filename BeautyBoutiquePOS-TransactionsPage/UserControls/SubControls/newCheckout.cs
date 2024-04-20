@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BeautyBoutiquePOS_TransactionsPage.UserControlls;
 using MySql.Data.MySqlClient;
 
 namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
@@ -15,11 +16,18 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
     public partial class newCheckout : Form
     {
-        public newCheckout()
+
+        private Checkout checkoutForm;
+
+
+
+        public newCheckout(Checkout checkoutForm)
         {
 
             
             InitializeComponent();
+
+            this.checkoutForm = checkoutForm;
 
             dataGridView1.Columns.Add("ProductNameColumn", "Product Name");
             dataGridView1.Columns.Add("QuantityColumn", "Quantity");
@@ -112,12 +120,11 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             return price * quantity;
         }
 
-        private void CalculateTotalBalance()
+        private decimal CalculateTotalBalance()
         {
             decimal totalBalance = 0;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                // Check if the cell value is not null and is convertible to decimal
                 if (row.Cells["TotalPriceColumn"].Value != null && decimal.TryParse(row.Cells["TotalPriceColumn"].Value.ToString(), out decimal totalPrice))
                 {
                     totalBalance += totalPrice;
@@ -125,11 +132,13 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             }
 
             balanceText.Text = totalBalance.ToString();
+            return totalBalance;
+
         }
 
         private void CustomizeDataGridView()
         {
-            // Change DataGridView appearance
+
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -142,14 +151,62 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
-            // Adjust column widths
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // Adjust row heights
             dataGridView1.RowTemplate.Height = 40;
 
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            decimal total = CalculateTotalBalance();
+
+            if (!string.IsNullOrWhiteSpace(txtDiscount.Text) && decimal.TryParse(txtDiscount.Text, out decimal discountPercentage))
+            {
+                decimal discountAmount = total * (discountPercentage / 100);
+
+                total -= discountAmount;
+
+                totalText.Text = total.ToString();
+            }
+
+
+            string customerName = comboBox1.SelectedItem.ToString();
+            decimal discount = decimal.TryParse(txtDiscount.Text, out decimal discountValue) ? discountValue : 0;
+
+            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.GetConnectionString()))
+            {
+                string query = "INSERT INTO checkout (customer, total, discount) VALUES (@CustomerName, @TotalAmount, @Discount)";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CustomerName", customerName);
+                    command.Parameters.AddWithValue("@TotalAmount", total);
+                    command.Parameters.AddWithValue("@Discount", discount);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Data inserted successfully into the checkout table.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to insert data into the checkout table.");
+                        }
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+            checkoutForm.UpdateDataGridView();
+            this.Close();
+        }
     }
 }

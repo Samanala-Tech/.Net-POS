@@ -36,7 +36,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.balanceText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.totalText = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -122,13 +122,13 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Balance";
             // 
-            // textBox3
+            // txtDiscount
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox3.Location = new System.Drawing.Point(441, 168);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(182, 29);
-            this.textBox3.TabIndex = 12;
+            this.txtDiscount.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtDiscount.Location = new System.Drawing.Point(441, 168);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(182, 29);
+            this.txtDiscount.TabIndex = 12;
             // 
             // txtQuantity
             // 
@@ -192,6 +192,7 @@
             this.button2.TabIndex = 19;
             this.button2.Text = "Checkout";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // newCheckout
             // 
@@ -205,7 +206,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.totalText);
             this.Controls.Add(this.txtQuantity);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtDiscount);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.balanceText);
             this.Controls.Add(this.label4);
@@ -232,7 +233,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox balanceText;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.TextBox totalText;
         private System.Windows.Forms.Label label6;
