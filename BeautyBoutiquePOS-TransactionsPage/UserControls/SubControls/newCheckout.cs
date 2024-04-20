@@ -25,42 +25,53 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
         private void newCheckout_Load(object sender, EventArgs e)
         {
             List<string> customers = new List<string> { "Rajith", "Sanjaya", "Janith" };
-            comboBox1.Items.AddRange(customers.ToArray());
-                 
-            MySqlConnection connection = new MySqlConnection(DatabaseConnection.GetConnectionString());
+            //comboBox1.Items.AddRange(customers.ToArray());
 
-            try
-                {
-                    // Open the connection
-                    connection.Open();
-                    string query = "SELECT name FROM products";
 
-                MySqlCommand command = new MySqlCommand(query, connection);
-
-                // Create a MySqlDataReader object to read the data
-                using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        // Clear existing items in the ComboBox
-                        comboBox2.Items.Clear();
-
-                        // Read each row from the data reader
-                        while (reader.Read())
-                        {
-                            // Add product name to the ComboBox
-                            comboBox2.Items.Add(reader["name"].ToString());
-                        }
-                    }
-                }
-                catch (MySqlException ex)
-                {
-                    // Handle any exceptions
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
+            LoadDataIntoComboBox(comboBox1, "customers", "name");
+            LoadDataIntoComboBox(comboBox2, "products", "name");
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void LoadDataIntoComboBox(ComboBox comboBox, string tableName, string columnName)
+        {
+            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.GetConnectionString()))
+            {
+
+                string query = $"SELECT {columnName} FROM {tableName}";
+
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    try
+                    {
+
+                        connection.Open();
+
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            comboBox.Items.Clear();
+
+                            while (reader.Read())
+                            {
+                                comboBox.Items.Add(reader[columnName].ToString());
+                            }
+                        }
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+
     }
 }
