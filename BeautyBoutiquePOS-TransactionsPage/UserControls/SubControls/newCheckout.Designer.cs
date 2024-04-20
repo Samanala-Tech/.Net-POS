@@ -34,11 +34,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.balanceText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.totalText = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -105,13 +105,13 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "QTY";
             // 
-            // textBox2
+            // balanceText
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox2.Location = new System.Drawing.Point(120, 168);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 29);
-            this.textBox2.TabIndex = 10;
+            this.balanceText.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.balanceText.Location = new System.Drawing.Point(120, 168);
+            this.balanceText.Name = "balanceText";
+            this.balanceText.Size = new System.Drawing.Size(182, 29);
+            this.balanceText.TabIndex = 10;
             // 
             // label5
             // 
@@ -130,21 +130,21 @@
             this.textBox3.Size = new System.Drawing.Size(182, 29);
             this.textBox3.TabIndex = 12;
             // 
-            // textBox1
+            // txtQuantity
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox1.Location = new System.Drawing.Point(775, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 29);
-            this.textBox1.TabIndex = 13;
+            this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtQuantity.Location = new System.Drawing.Point(775, 72);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(182, 29);
+            this.txtQuantity.TabIndex = 13;
             // 
-            // textBox4
+            // totalText
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox4.Location = new System.Drawing.Point(775, 168);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(182, 29);
-            this.textBox4.TabIndex = 14;
+            this.totalText.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.totalText.Location = new System.Drawing.Point(775, 168);
+            this.totalText.Name = "totalText";
+            this.totalText.Size = new System.Drawing.Size(182, 29);
+            this.totalText.TabIndex = 14;
             // 
             // label6
             // 
@@ -182,6 +182,7 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -202,11 +203,11 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.totalText);
+            this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.balanceText);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox2);
@@ -229,11 +230,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox balanceText;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.TextBox totalText;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView1;

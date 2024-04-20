@@ -20,14 +20,14 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
             
             InitializeComponent();
+
+            dataGridView1.Columns.Add("ProductNameColumn", "Product Name");
+            dataGridView1.Columns.Add("QuantityColumn", "Quantity");
+            dataGridView1.Columns.Add("TotalPriceColumn", "Total Price");
         }
 
         private void newCheckout_Load(object sender, EventArgs e)
         {
-            List<string> customers = new List<string> { "Rajith", "Sanjaya", "Janith" };
-            //comboBox1.Items.AddRange(customers.ToArray());
-
-
             LoadDataIntoComboBox(comboBox1, "customers", "name");
             LoadDataIntoComboBox(comboBox2, "products", "name");
         }
@@ -41,17 +41,13 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
         {
             using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.GetConnectionString()))
             {
-
                 string query = $"SELECT {columnName} FROM {tableName}";
-
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     try
                     {
-
                         connection.Open();
-
 
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -72,6 +68,62 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string productName = comboBox2.SelectedItem.ToString();
+            int quantity = Convert.ToInt32(txtQuantity.Text);
+
+            decimal totalPrice = CalculateTotalPrice(productName, quantity);
+
+            
+            dataGridView1.Rows.Add(productName, quantity, totalPrice);
+
+            CalculateTotalBalance();
+        }
+
+        private decimal CalculateTotalPrice(string productName, int quantity)
+        {
+            decimal price = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.GetConnectionString()))
+            {
+                string query = $"SELECT price FROM products WHERE name = '{productName}'";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            price = Convert.ToDecimal(result);
+                        }
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+
+            return price * quantity;
+        }
+
+        private void CalculateTotalBalance()
+        {
+            decimal totalBalance = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Check if the cell value is not null and is convertible to decimal
+                if (row.Cells["TotalPriceColumn"].Value != null && decimal.TryParse(row.Cells["TotalPriceColumn"].Value.ToString(), out decimal totalPrice))
+                {
+                    totalBalance += totalPrice;
+                }
+            }
+
+            balanceText.Text = totalBalance.ToString();
+        }
 
     }
 }
