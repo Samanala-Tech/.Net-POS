@@ -42,6 +42,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +108,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox2.Location = new System.Drawing.Point(120, 131);
+            this.textBox2.Location = new System.Drawing.Point(120, 168);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(182, 29);
             this.textBox2.TabIndex = 10;
@@ -114,7 +116,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(40, 134);
+            this.label5.Location = new System.Drawing.Point(40, 171);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 21);
             this.label5.TabIndex = 11;
@@ -123,7 +125,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox3.Location = new System.Drawing.Point(441, 131);
+            this.textBox3.Location = new System.Drawing.Point(441, 168);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(182, 29);
             this.textBox3.TabIndex = 12;
@@ -139,7 +141,7 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox4.Location = new System.Drawing.Point(775, 131);
+            this.textBox4.Location = new System.Drawing.Point(775, 168);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(182, 29);
             this.textBox4.TabIndex = 14;
@@ -148,7 +150,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(361, 134);
+            this.label6.Location = new System.Drawing.Point(361, 171);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 21);
             this.label6.TabIndex = 15;
@@ -158,7 +160,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(716, 139);
+            this.label7.Location = new System.Drawing.Point(716, 176);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 21);
             this.label7.TabIndex = 16;
@@ -167,16 +169,36 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 180);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 250);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1015, 366);
+            this.dataGridView1.Size = new System.Drawing.Size(1015, 360);
             this.dataGridView1.TabIndex = 17;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(866, 121);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 31);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Add";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(866, 213);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 31);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Checkout";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // newCheckout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 548);
+            this.ClientSize = new System.Drawing.Size(1012, 609);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -215,5 +237,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
