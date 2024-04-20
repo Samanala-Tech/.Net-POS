@@ -24,6 +24,8 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             dataGridView1.Columns.Add("ProductNameColumn", "Product Name");
             dataGridView1.Columns.Add("QuantityColumn", "Quantity");
             dataGridView1.Columns.Add("TotalPriceColumn", "Total Price");
+
+            CustomizeDataGridView();
         }
 
         private void newCheckout_Load(object sender, EventArgs e)
@@ -123,6 +125,30 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             }
 
             balanceText.Text = totalBalance.ToString();
+        }
+
+        private void CustomizeDataGridView()
+        {
+            // Change DataGridView appearance
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dataGridView1.BackgroundColor = Color.White;
+
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            // Adjust column widths
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Adjust row heights
+            dataGridView1.RowTemplate.Height = 40;
+
+
         }
 
     }
