@@ -25,6 +25,7 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
         private decimal netGross;
 
         Cash cashForm1 = new Cash(0);
+        Card cardForm1 = new Card(0);
 
 
 
@@ -182,8 +183,9 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
         private void cardBtn_CheckedChanged(object sender, EventArgs e)
         {
-            Card cardForm = new Card();
+            Card cardForm = new Card(netGross);
             cardForm.ShowDialog();
+            this.cardForm1 = cardForm; 
         }
 
         public void RefreshDataGrid()

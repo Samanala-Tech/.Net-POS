@@ -70,6 +70,7 @@
             this.textQTY.Name = "textQTY";
             this.textQTY.Size = new System.Drawing.Size(250, 29);
             this.textQTY.TabIndex = 26;
+            this.textQTY.Text = "1";
             // 
             // label2
             // 
