@@ -16,5 +16,10 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls.Payment
         {
             InitializeComponent();
         }
+
+        private void Card_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

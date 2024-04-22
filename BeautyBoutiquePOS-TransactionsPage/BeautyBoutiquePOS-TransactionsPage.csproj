@@ -198,6 +198,9 @@
     <EmbeddedResource Include="UserControls\SubControls\newCheckout.resx">
       <DependentUpon>newCheckout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SubControls\Payment\Card.resx">
+      <DependentUpon>Card.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SubControls\Payment\Cash.resx">
       <DependentUpon>Cash.cs</DependentUpon>
     </EmbeddedResource>

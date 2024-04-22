@@ -183,8 +183,8 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
         private void cardBtn_CheckedChanged(object sender, EventArgs e)
         {
-            Cash cashForm = new Cash();
-            cashForm.ShowDialog();
+            Card cardForm = new Card();
+            cardForm.ShowDialog();
         }
 
         public void RefreshDataGrid()
@@ -199,6 +199,26 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
                     dataGridView1.DataSource = dataTable;
                 }
             }
+
+            CalculateNetGrossAmount();
+        }
+
+
+        private void CalculateNetGrossAmount()
+        {
+            decimal netGrossAmount = 0;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["total"].Value != null && decimal.TryParse(row.Cells["total"].Value.ToString(), out decimal totalPrice))
+                {
+                    netGrossAmount += totalPrice;
+                }
+            }
+
+            netammountText.Text = netGrossAmount.ToString();
+
+
         }
 
     }
