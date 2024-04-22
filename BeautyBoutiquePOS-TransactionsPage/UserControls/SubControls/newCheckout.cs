@@ -21,16 +21,22 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
         private Checkout checkoutForm;
         private List<object[]> filteredData;
+        private decimal sum;
 
 
 
-        public newCheckout(Checkout checkoutForm)
+        public newCheckout(Checkout checkoutForm, decimal sum)
         {
 
             
             InitializeComponent();
 
             this.checkoutForm = checkoutForm;
+
+            this.checkoutForm = checkoutForm;
+            this.sum = sum;
+
+            netammountText.Text = sum.ToString();
 
             //dataGridView1.Columns.Add("TotalPriceColumn", "Total");
             //dataGridView1.Columns.Add("DiscountPriceColumn", "Discount");
@@ -44,8 +50,7 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
         private void newCheckout_Load(object sender, EventArgs e)
         {
-            LoadDataIntoComboBox(comboBox1, "customers", "name");
-            LoadDataIntoComboBox(comboBox2, "products", "name");
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -84,26 +89,6 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            if (comboBox2.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a product before adding.");
-                return;
-            }
-            string productName = comboBox2.SelectedItem.ToString();
-            int quantity = Convert.ToInt32(txtQuantity.Text);
-
-            
-
-            decimal totalPrice = CalculateTotalPrice(productName, quantity);
-
-            
-            dataGridView1.Rows.Add(productName, quantity, totalPrice);
-
-            CalculateTotalBalance();
-        }
 
         private decimal CalculateTotalPrice(string productName, int quantity)
         {
@@ -134,21 +119,6 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             return price * quantity;
         }
 
-        private decimal CalculateTotalBalance()
-        {
-            decimal totalBalance = 0;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Cells["TotalPriceColumn"].Value != null && decimal.TryParse(row.Cells["TotalPriceColumn"].Value.ToString(), out decimal totalPrice))
-                {
-                    totalBalance += totalPrice;
-                }
-            }
-
-            balanceText.Text = totalBalance.ToString();
-            return totalBalance;
-
-        }
 
         private void CustomizeDataGridView()
         {
@@ -172,61 +142,6 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            decimal total = CalculateTotalBalance();
-
-            if (!string.IsNullOrWhiteSpace(txtDiscount.Text) && decimal.TryParse(txtDiscount.Text, out decimal discountPercentage))
-            {
-                decimal discountAmount = total * (discountPercentage / 100);
-
-                total -= discountAmount;
-
-                totalText.Text = total.ToString();
-            }
-
-            if (comboBox1.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a customer before checking out.");
-                return; 
-            }
-
-            string customerName = comboBox1.SelectedItem.ToString();
-            decimal discount = decimal.TryParse(txtDiscount.Text, out decimal discountValue) ? discountValue : 0;
-
-            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.GetConnectionString()))
-            {
-                string query = "INSERT INTO checkout (customer, total, discount) VALUES (@CustomerName, @TotalAmount, @Discount)";
-
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@CustomerName", customerName);
-                    command.Parameters.AddWithValue("@TotalAmount", total);
-                    command.Parameters.AddWithValue("@Discount", discount);
-
-                    try
-                    {
-                        connection.Open();
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Data inserted successfully into the checkout table.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to insert data into the checkout table.");
-                        }
-                    }
-                    catch (MySqlException ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                }
-            }
-            checkoutForm.UpdateDataGridView();
-            this.Close();
-        }
 
        
 

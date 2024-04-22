@@ -22,6 +22,8 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
             UpdateDataGridView();
             CustomizeDataGridView();
+
+
         }
 
 
@@ -148,7 +150,7 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
                                 command.Parameters.AddWithValue("@Id", rowData[0]);
                                 command.Parameters.AddWithValue("@Name", rowData[1]);
                                 command.Parameters.AddWithValue("@Description", rowData[2]);
-                                command.Parameters.AddWithValue("@Qty", rowData[3]);
+                                command.Parameters.AddWithValue("@Qty", Convert.ToInt32(textQTY.Text));
                                 command.Parameters.AddWithValue("@Discount", rowData[4]);
                                 command.Parameters.AddWithValue("@Price", rowData[5]);
                                 command.Parameters.AddWithValue("@Total", totalPrice);
@@ -253,6 +255,8 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             decimal discountPrice = price - (price * discount);
             return discountPrice;
         }
+
+        
 
     }
 }

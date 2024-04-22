@@ -65,7 +65,7 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControlls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            newCheckout checkoutForm = new newCheckout(this);
+            newCheckout checkoutForm = new newCheckout(this,0);
             checkoutForm.ShowDialog();
         }
 
