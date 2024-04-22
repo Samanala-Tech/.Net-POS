@@ -43,15 +43,14 @@ nic varchar(255) primary key,
 name varchar(255),
 age double,
 address varchar(255),
-contact varchar(255)
+contact varchar(255),
+email varchar(255),
+Career varchar(255)
 );
 
-INSERT INTO customers (nic, name, age, address, contact) VALUES
-('123456789V', 'John Doe', 30, '123 Main Street, City', '123-456-7890'),
-('987654321V', 'Jane Smith', 25, '456 Elm Street, Town', '456-789-0123'),
-('654321987V', 'Alice Johnson', 35, '789 Oak Street, Village', '789-012-3456'),
-('456789123V', 'Bob Brown', 40, '321 Pine Street, Suburb', '012-345-6789'),
-('321987654V', 'Emily Davis', 28, '654 Maple Street, Hamlet', '345-678-9012');
+drop table customers;
+
+
 
 select * from customers;
 
@@ -72,7 +71,8 @@ name varchar(255),
 description varchar(255),
 qty double,
 discount double,
-price float
+price float,
+total float
 );
 
 drop table productsLine;

@@ -98,11 +98,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="categories.cs">
+    <Compile Include="UserControls\Categories.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Categories.Designer.cs">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Customers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Customers.Designer.cs">
+      <DependentUpon>Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SubControls\newCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="categories.Designer.cs">
-      <DependentUpon>categories.cs</DependentUpon>
+    <Compile Include="UserControls\SubControls\newCustomer.Designer.cs">
+      <DependentUpon>newCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\categories1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\categories1.Designer.cs">
+      <DependentUpon>categories1.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Form1.cs">
@@ -117,10 +135,10 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="newCategorie.cs">
+    <Compile Include="Views\Sub Views\newCategorie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newCategorie.Designer.cs">
+    <Compile Include="Views\Sub Views\newCategorie.Designer.cs">
       <DependentUpon>newCategorie.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -167,8 +185,17 @@
     <Compile Include="welcome.Designer.cs">
       <DependentUpon>welcome.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="categories.resx">
-      <DependentUpon>categories.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Categories.resx">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Customers.resx">
+      <DependentUpon>Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SubControls\newCustomer.resx">
+      <DependentUpon>newCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\categories1.resx">
+      <DependentUpon>categories1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -176,7 +203,7 @@
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newCategorie.resx">
+    <EmbeddedResource Include="Views\Sub Views\newCategorie.resx">
       <DependentUpon>newCategorie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -233,5 +260,6 @@
   <ItemGroup>
     <None Include="Resources\edit.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

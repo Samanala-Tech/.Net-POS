@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
 using BeautyBoutiquePOS_TransactionsPage.UserControlls;
+using BeautyBoutiquePOS_TransactionsPage.UserControls;
 
 namespace BeautyBoutiquePOS_TransactionsPage
 
@@ -84,7 +85,8 @@ namespace BeautyBoutiquePOS_TransactionsPage
 
         private void btnCategories_Click(object sender, EventArgs e)
         {
-
+            var categories = new Categories();
+            windowPnl.Controls.Add(categories);
         }
 
         private void btnCheckout_Click(object sender, EventArgs e)
@@ -98,6 +100,12 @@ namespace BeautyBoutiquePOS_TransactionsPage
         {
             // Remove any existing content from the content area
             windowPnl.Controls.Clear();
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            var Customers = new Customers();
+            windowPnl.Controls.Add(Customers);
         }
     }
 }

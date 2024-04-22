@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace BeautyBoutiquePOS_TransactionsPage
 {
-    public partial class categories : Form
+    public partial class categories1 : Form
     {
 
         DataTable dataTable1;
 
-        public categories()
+        public categories1()
         {
             InitializeComponent();
 

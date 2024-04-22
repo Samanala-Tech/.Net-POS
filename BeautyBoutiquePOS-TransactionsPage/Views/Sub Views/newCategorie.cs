@@ -14,7 +14,7 @@ namespace BeautyBoutiquePOS_TransactionsPage
 {
     public partial class newCategorie : Form
     {
-        categories catForm = Application.OpenForms.OfType<categories>().FirstOrDefault();
+        categories1 catForm = Application.OpenForms.OfType<categories1>().FirstOrDefault();
 
         public newCategorie(object[] rowData,string method)
         {
