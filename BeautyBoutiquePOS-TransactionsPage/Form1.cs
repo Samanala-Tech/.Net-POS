@@ -107,5 +107,11 @@ namespace BeautyBoutiquePOS_TransactionsPage
             var Customers = new Customers();
             windowPnl.Controls.Add(Customers);
         }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            var Product = new Product();
+            windowPnl.Controls.Add(Product);
+        }
     }
 }

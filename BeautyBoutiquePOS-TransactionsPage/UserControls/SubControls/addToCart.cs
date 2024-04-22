@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 {
-    public partial class product : Form
+    public partial class addToCart : Form
     {
         DataTable dataTable1;
         DataView dataView1;
 
-        public product()
+        public addToCart()
         {
             InitializeComponent();
 

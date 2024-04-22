@@ -1,6 +1,6 @@
 ﻿namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 {
-    partial class product
+    partial class addToCart
     {
         /// <summary>
         /// Required designer variable.

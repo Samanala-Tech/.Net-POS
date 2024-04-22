@@ -20,8 +20,8 @@ create table products(
 id int auto_increment primary key,
 name varchar(255),
 description varchar(255),
-qty double,
-discount double,
+qty double default 0,
+discount double default 0,
 price float
 );
 

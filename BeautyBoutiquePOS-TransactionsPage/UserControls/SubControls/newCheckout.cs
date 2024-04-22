@@ -170,7 +170,7 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
         private void textBox1_Click(object sender, EventArgs e)
         {
-            product productForm = new product();
+            addToCart productForm = new addToCart();
             productForm.ShowDialog();
         }
 
