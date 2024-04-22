@@ -20,6 +20,7 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
     {
 
         private Checkout checkoutForm;
+        private List<object[]> filteredData;
 
 
 
@@ -31,13 +32,10 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
             this.checkoutForm = checkoutForm;
 
-            dataGridView1.Columns.Add("ProductNameColumn", "Product Name");
-            dataGridView1.Columns.Add("PriceColumn", "Price");
-            dataGridView1.Columns.Add("QuantityColumn", "Quantity");
-            dataGridView1.Columns.Add("TotalPriceColumn", "Total");
-            dataGridView1.Columns.Add("DiscountPriceColumn", "Discount");
-            dataGridView1.Columns.Add("Discount%Column", "Discount %");
-            dataGridView1.Columns.Add("SubTotalColumn", "Sub Total");
+            //dataGridView1.Columns.Add("TotalPriceColumn", "Total");
+            //dataGridView1.Columns.Add("DiscountPriceColumn", "Discount");
+            //dataGridView1.Columns.Add("Discount%Column", "Discount %");
+            //dataGridView1.Columns.Add("SubTotalColumn", "Sub Total");
 
             CustomizeDataGridView();
         }
@@ -273,5 +271,20 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             Cash cashForm = new Cash();
             cashForm.ShowDialog();
         }
+
+        public void RefreshDataGrid()
+        {
+            string query = "SELECT * FROM productsLine";
+            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.GetConnectionString()))
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dataGridView1.DataSource = dataTable;
+                }
+            }
+        }
+
     }
 }

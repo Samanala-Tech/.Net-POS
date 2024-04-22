@@ -21,17 +21,20 @@ id int auto_increment primary key,
 name varchar(255),
 description varchar(255),
 qty double,
+discount double,
 price float
 );
 
+drop table products;
 desc products;
 
-INSERT INTO products (name, description, qty, price) VALUES
-('Product 1', 'Description of Product 1', 10, 29.99),
-('Product 2', 'Description of Product 2', 15, 39.99),
-('Product 3', 'Description of Product 3', 20, 49.99),
-('Product 4', 'Description of Product 4', 25, 59.99),
-('Product 5', 'Description of Product 5', 30, 69.99);
+INSERT INTO products (name, description, qty, discount, price) VALUES
+('Product 1', 'Description of Product 1', 100, 0.05, 10.99),
+('Product 2', 'Description of Product 2', 150, 0.1, 20.49),
+('Product 3', 'Description of Product 3', 80, 0.0, 15.99),
+('Product 4', 'Description of Product 4', 200, 0.2, 8.75),
+('Product 5', 'Description of Product 5', 120, 0.15, 25.99);
+
 
 select * from products;
 
@@ -62,6 +65,18 @@ discount double
 );
 
 select * from checkout;
+
+create table productsLine( 
+id int,
+name varchar(255),
+description varchar(255),
+qty double,
+discount double,
+price float
+);
+
+drop table productsLine;
+
 
 
 
