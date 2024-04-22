@@ -22,6 +22,9 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
         private Checkout checkoutForm;
         private List<object[]> filteredData;
         private decimal sum;
+        private decimal netGross;
+
+        Cash cashForm1 = new Cash(0);
 
 
 
@@ -49,11 +52,6 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
 
         private void newCheckout_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -177,8 +175,9 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
         private void cashBtn_CheckedChanged(object sender, EventArgs e)
         {
-            Cash cashForm = new Cash(); 
+            Cash cashForm = new Cash(netGross); 
             cashForm.ShowDialog();
+            this.cashForm1 = cashForm;
         }
 
         private void cardBtn_CheckedChanged(object sender, EventArgs e)
@@ -218,8 +217,43 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
             netammountText.Text = netGrossAmount.ToString();
 
-
+            netGross = netGrossAmount;
         }
 
+        private void DeleteAllProductsLineData()
+        {
+            string query = "DELETE FROM productsLine";
+
+            using (MySqlConnection connection = new MySqlConnection(DatabaseConnection.GetConnectionString()))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("All data from productsLine table deleted successfully.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No data found in productsLine table.");
+                        }
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textGross.Text = this.cashForm1.balance.ToString();
+            DeleteAllProductsLineData();             
+        }
     }
 }

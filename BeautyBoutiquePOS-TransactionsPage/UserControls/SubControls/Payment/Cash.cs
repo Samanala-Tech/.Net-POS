@@ -16,9 +16,14 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls.Payment
     {
 
         public decimal Sum { get; private set; }
-        public Cash()
+        public decimal balance = 0;
+        public decimal ammount = 0;
+        public Cash(decimal ammount)
         {
             InitializeComponent();
+
+            lblRs.Text = ammount.ToString();
+            this.ammount = ammount;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -47,7 +52,6 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls.Payment
             label100.Text = text100.Text;
             label50.Text = text50.Text;
             label20.Text = text20.Text;
-
 
             decimal sum = 0;
 
@@ -84,17 +88,11 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls.Payment
             }
             else
             {
-                MessageBox.Show($"Sum: {sum}");
+                balance = sum - ammount;
             }
 
-
-
-            Checkout checkoutForm = new Checkout();
-            newCheckout newCheckoutForm = new newCheckout(checkoutForm, Sum);
-            
-
             this.Close();
-
         }
+
     }
 }

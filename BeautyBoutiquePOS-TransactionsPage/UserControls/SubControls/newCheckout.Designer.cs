@@ -48,7 +48,7 @@
             this.ezcashBtn = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.netammountText = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textGross = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -105,6 +105,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Checkout";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
@@ -199,7 +200,7 @@
             this.cashBtn.TabStop = true;
             this.cashBtn.Text = "Cash";
             this.cashBtn.UseVisualStyleBackColor = true;
-            this.cashBtn.CheckedChanged += new System.EventHandler(this.cashBtn_CheckedChanged);
+            this.cashBtn.Click += new System.EventHandler(this.cashBtn_CheckedChanged);
             // 
             // cardBtn
             // 
@@ -212,7 +213,7 @@
             this.cardBtn.TabStop = true;
             this.cardBtn.Text = "Card";
             this.cardBtn.UseVisualStyleBackColor = true;
-            this.cardBtn.CheckedChanged += new System.EventHandler(this.cardBtn_CheckedChanged);
+            this.cardBtn.Click += new System.EventHandler(this.cardBtn_CheckedChanged);
             // 
             // lankapayBtn
             // 
@@ -256,13 +257,13 @@
             this.netammountText.Size = new System.Drawing.Size(182, 29);
             this.netammountText.TabIndex = 29;
             // 
-            // textBox4
+            // textGross
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox4.Location = new System.Drawing.Point(817, 528);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(182, 29);
-            this.textBox4.TabIndex = 30;
+            this.textGross.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textGross.Location = new System.Drawing.Point(817, 528);
+            this.textGross.Name = "textGross";
+            this.textGross.Size = new System.Drawing.Size(182, 29);
+            this.textGross.TabIndex = 30;
             // 
             // label12
             // 
@@ -332,7 +333,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textGross);
             this.Controls.Add(this.netammountText);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.ezcashBtn);
@@ -382,7 +383,7 @@
         private System.Windows.Forms.RadioButton ezcashBtn;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox netammountText;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textGross;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
