@@ -7,7 +7,7 @@ Make sure .Net Desktop development Framework is intalled
 install Mysql Server Form [this](https://dev.mysql.com/downloads/mysql/)
 
 ### Configure DB Connection
-Ther is calass name **DatabaseConnection** inside the project 
+Ther is class name **DatabaseConnection** inside the project 
 
 change the Database,Username and Passowrd from your configaration 
 
