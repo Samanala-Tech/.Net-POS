@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeautyBoutiquePOS_TransactionsPage.UserControlls;
+using BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls.Payment;
 using MySql.Data.MySqlClient;
 
 namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
@@ -31,11 +32,17 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             this.checkoutForm = checkoutForm;
 
             dataGridView1.Columns.Add("ProductNameColumn", "Product Name");
+            dataGridView1.Columns.Add("PriceColumn", "Price");
             dataGridView1.Columns.Add("QuantityColumn", "Quantity");
-            dataGridView1.Columns.Add("TotalPriceColumn", "Total Price");
+            dataGridView1.Columns.Add("TotalPriceColumn", "Total");
+            dataGridView1.Columns.Add("DiscountPriceColumn", "Discount");
+            dataGridView1.Columns.Add("Discount%Column", "Discount %");
+            dataGridView1.Columns.Add("SubTotalColumn", "Sub Total");
 
             CustomizeDataGridView();
         }
+
+
 
         private void newCheckout_Load(object sender, EventArgs e)
         {
@@ -247,6 +254,24 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
 
                 button.Region = new Region(GraphPath);
             }
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            product productForm = new product();
+            productForm.ShowDialog();
+        }
+
+        private void cashBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            Cash cashForm = new Cash(); 
+            cashForm.ShowDialog();
+        }
+
+        private void cardBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            Cash cashForm = new Cash();
+            cashForm.ShowDialog();
         }
     }
 }

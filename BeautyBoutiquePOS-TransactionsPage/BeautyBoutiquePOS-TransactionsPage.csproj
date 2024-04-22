@@ -143,6 +143,24 @@
     <Compile Include="UserControls\SubControls\newCheckout.Designer.cs">
       <DependentUpon>newCheckout.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SubControls\Payment\Card.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\SubControls\Payment\Card.Designer.cs">
+      <DependentUpon>Card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SubControls\Payment\Cash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\SubControls\Payment\Cash.Designer.cs">
+      <DependentUpon>Cash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SubControls\product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\SubControls\product.Designer.cs">
+      <DependentUpon>product.cs</DependentUpon>
+    </Compile>
     <Compile Include="welcome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +197,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SubControls\newCheckout.resx">
       <DependentUpon>newCheckout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SubControls\Payment\Cash.resx">
+      <DependentUpon>Cash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SubControls\product.resx">
+      <DependentUpon>product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="welcome.resx">
       <DependentUpon>welcome.cs</DependentUpon>

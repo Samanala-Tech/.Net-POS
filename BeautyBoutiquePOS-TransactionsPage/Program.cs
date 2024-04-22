@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BeautyBoutiquePOS_TransactionsPage.UserControlls;
+using BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,8 +19,6 @@ namespace BeautyBoutiquePOS_TransactionsPage
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-
         }
     }
 }
