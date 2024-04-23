@@ -36,6 +36,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtCategory = new System.Windows.Forms.ComboBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -46,7 +47,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCategory = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -112,7 +112,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(4, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 21);
+            this.label4.Size = new System.Drawing.Size(86, 21);
             this.label4.TabIndex = 0;
             this.label4.Text = "Category :";
             // 
@@ -125,6 +125,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(343, 32);
             this.panel4.TabIndex = 14;
+            // 
+            // txtCategory
+            // 
+            this.txtCategory.BackColor = System.Drawing.Color.White;
+            this.txtCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategory.ForeColor = System.Drawing.Color.DimGray;
+            this.txtCategory.FormattingEnabled = true;
+            this.txtCategory.Location = new System.Drawing.Point(90, 1);
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.Size = new System.Drawing.Size(253, 29);
+            this.txtCategory.TabIndex = 1;
             // 
             // txtPrice
             // 
@@ -180,6 +191,7 @@
             // txtDescription
             // 
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.txtDescription.Location = new System.Drawing.Point(106, 3);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(232, 96);
@@ -204,6 +216,7 @@
             this.btnSave.TabIndex = 19;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panel1
             // 
@@ -226,16 +239,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name :";
             // 
-            // txtCategory
-            // 
-            this.txtCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategory.ForeColor = System.Drawing.Color.Transparent;
-            this.txtCategory.FormattingEnabled = true;
-            this.txtCategory.Location = new System.Drawing.Point(90, 1);
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(253, 29);
-            this.txtCategory.TabIndex = 1;
-            // 
             // newProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,7 +252,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "newProduct";
             this.Text = "newProduct";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

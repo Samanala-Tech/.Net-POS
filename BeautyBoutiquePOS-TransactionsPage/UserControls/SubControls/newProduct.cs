@@ -72,5 +72,9 @@ namespace BeautyBoutiquePOS_TransactionsPage.UserControls.SubControls
             }
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            AddProductToDatabase();
+        }
     }
 }

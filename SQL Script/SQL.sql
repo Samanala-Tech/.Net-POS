@@ -22,7 +22,8 @@ name varchar(255),
 description varchar(255),
 qty double default 0,
 discount double default 0,
-price float
+price float,
+category varchar(255)
 );
 
 drop table products;
