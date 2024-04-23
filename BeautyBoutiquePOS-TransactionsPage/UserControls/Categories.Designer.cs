@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Categories));
-            this.checkoutGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCategories = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -37,20 +37,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.checkoutGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategories)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
-            // checkoutGridView
+            // dataGridViewCategories
             // 
-            this.checkoutGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.checkoutGridView.Location = new System.Drawing.Point(-61, 124);
-            this.checkoutGridView.Name = "checkoutGridView";
-            this.checkoutGridView.Size = new System.Drawing.Size(1332, 553);
-            this.checkoutGridView.TabIndex = 20;
+            this.dataGridViewCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCategories.Location = new System.Drawing.Point(-61, 124);
+            this.dataGridViewCategories.Name = "dataGridViewCategories";
+            this.dataGridViewCategories.Size = new System.Drawing.Size(1332, 553);
+            this.dataGridViewCategories.TabIndex = 20;
             // 
             // label1
             // 
@@ -129,19 +129,20 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "New Categories";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Categories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.checkoutGridView);
+            this.Controls.Add(this.dataGridViewCategories);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.button1);
             this.Name = "Categories";
             this.Size = new System.Drawing.Size(1211, 677);
-            ((System.ComponentModel.ISupportInitialize)(this.checkoutGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategories)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -153,7 +154,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView checkoutGridView;
+        private System.Windows.Forms.DataGridView dataGridViewCategories;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.RichTextBox richTextBox1;

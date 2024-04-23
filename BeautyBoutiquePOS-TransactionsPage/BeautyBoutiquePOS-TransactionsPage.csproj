@@ -116,6 +116,12 @@
     <Compile Include="UserControls\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SubControls\newCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\SubControls\newCategory.Designer.cs">
+      <DependentUpon>newCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\SubControls\newCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,12 +133,6 @@
     </Compile>
     <Compile Include="UserControls\SubControls\newProduct.Designer.cs">
       <DependentUpon>newProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\categories1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\categories1.Designer.cs">
-      <DependentUpon>categories1.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Form1.cs">
@@ -146,12 +146,6 @@
     </Compile>
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Sub Views\newCategorie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Sub Views\newCategorie.Designer.cs">
-      <DependentUpon>newCategorie.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,23 +200,20 @@
     <EmbeddedResource Include="UserControls\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SubControls\newCategory.resx">
+      <DependentUpon>newCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SubControls\newCustomer.resx">
       <DependentUpon>newCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SubControls\newProduct.resx">
       <DependentUpon>newProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\categories1.resx">
-      <DependentUpon>categories1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Sub Views\newCategorie.resx">
-      <DependentUpon>newCategorie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -278,6 +269,8 @@
   <ItemGroup>
     <None Include="Resources\edit.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Sub Views\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
