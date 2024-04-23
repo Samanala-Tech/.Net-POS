@@ -85,31 +85,33 @@ namespace BeautyBoutiquePOS_TransactionsPage
 
         private void btnCategories_Click(object sender, EventArgs e)
         {
+            ClearContentArea();
             var categories = new Categories();
             windowPnl.Controls.Add(categories);
         }
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            // Load the Checkout UserControl
+            ClearContentArea();
             var checkoutControl = new Checkout();
             windowPnl.Controls.Add(checkoutControl);
         }
 
         private void ClearContentArea()
         {
-            // Remove any existing content from the content area
             windowPnl.Controls.Clear();
         }
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
+            ClearContentArea();
             var Customers = new Customers();
             windowPnl.Controls.Add(Customers);
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
+            ClearContentArea();
             var Product = new Product();
             windowPnl.Controls.Add(Product);
         }
